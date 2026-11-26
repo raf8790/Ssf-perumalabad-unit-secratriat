@@ -1,4 +1,3 @@
-HTML
 
 <!DOCTYPE html>
 <html lang="ml">
@@ -6,7 +5,8 @@ HTML
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#07111f">
-  <title>UNIT SECRATARIAT 2027-28| SSF PERUMALABAD UNIT</title>
+
+  <title>UNIT SECRETARIAT 2027-28 | SSF PERUMALABAD UNIT</title>
 
   <style>
     * {
@@ -20,9 +20,6 @@ HTML
       height: 100%;
       overflow: hidden;
       background: #07111f;
-    }
-
-    body {
       font-family: Arial, sans-serif;
     }
 
@@ -45,12 +42,13 @@ HTML
       gap: 14px;
       background: #07111f;
       color: #10b981;
-      z-index: -1;
+      z-index: 2;
+      transition: opacity 0.4s ease;
     }
 
     .loader {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border: 4px solid #17372f;
       border-top-color: #10b981;
       border-radius: 50%;
@@ -58,24 +56,52 @@ HTML
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      color: #ffffff;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.8;
     }
   </style>
 </head>
 
 <body>
+
   <div id="loading">
     <div class="loader"></div>
-    <strong>UNIT SECRATRIAT 2027-28</strong>
-    <span>SSF PERUMALABAD UNIT</span>
+    <strong>UNIT SECRETARIAT 2027-28</strong>
+    <div class="loading-text">
+      SSF PERUMALABAD UNIT<br>
+      Please Wait...
+    </div>
   </div>
 
   <iframe
+    id="appFrame"
     class="app-frame"
-    src=""
-    title="SSF Perumalabad Unit Secratriat 2027-28"
+    src="https://script.google.com/macros/s/AKfycbzMQOLTqvil9IO7x2d5J7yTTWFPlQ53VU2fjaYjEIffM5uQ_Wg0uoSzPExezPUdIoAe_w/exec"
+    title="SSF Perumalabad Unit Secretariat 2027-28"
     allow="fullscreen"
     allowfullscreen>
   </iframe>
-</body>https://script.google.com/macros/s/AKfycbzMQOLTqvil9IO7x2d5J7yTTWFPlQ53VU2fjaYjEIffM5uQ_Wg0uoSzPExezPUdIoAe_w/exec
+
+  <script>
+    const frame = document.getElementById("appFrame");
+    const loading = document.getElementById("loading");
+
+    frame.addEventListener("load", function () {
+      loading.style.opacity = "0";
+
+      setTimeout(function () {
+        loading.style.display = "none";
+      }, 400);
+    });
+  </script>
+
+</body>
 </html>
